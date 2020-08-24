@@ -19,7 +19,6 @@
     "test": "mocha --recursive out/test",
     "watch": "tsc --pretty --watch -p ."
   },
-  "type": "module",
   "readme": "README.md",
   "dependencies": {
     "@types/node": "^14.6.0",
