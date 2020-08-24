@@ -1,15 +1,29 @@
 {
-  "name": "node_startup",
+  "name": "learning-js",
+  "description": "Building a better JavaScript foundation",
+  "keywords": [
+    "Learning"
+  ],
+  "private": true,
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "out/index.js",
   "author": "Faris Chugthai <farischugthai@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "compile": "tsc --pretty --watch -p .",
-    "start": "ts-node"
+  "directories": {
+    "test": "out/test",
+    "lib": "out/src"
   },
+  "scripts": {
+    "compile": "tsc --pretty -p .",
+    "start": "ts-node",
+    "test": "mocha --recursive out/test",
+    "watch": "tsc --pretty --watch -p ."
+  },
+  "type": "module",
+  "readme": "README.md",
   "dependencies": {
     "@types/node": "^14.6.0",
+    "mocha": "^8.1.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   }

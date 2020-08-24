@@ -1,4 +1,11 @@
-# gitignore
+# Gitignore
+
+# Editors
+.vs
+.idea
+.vscode/tags
+.vscode/tags.temp
+tags
 
 # tsc build
 src/index.js

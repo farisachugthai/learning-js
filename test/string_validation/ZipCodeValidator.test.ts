@@ -1,12 +1,12 @@
-const assert = require('assert').strict;
+import { ZipCodeValidator } from "../../src/string_validation/ZipCodeValidator";
 
-import zip = require("../src/string_validation/ZipCodeValidator");
+const assert = require('assert').strict;
 
 // Some samples to try
 let strings = ["Hello", "98052", "101"];
 
 // Validators to use
-let validator = new zip();
+let validator = new ZipCodeValidator();
 
 // Show whether each string passed each validator
 strings.forEach((s) => {
