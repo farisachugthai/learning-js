@@ -13,6 +13,14 @@
 			},
 			"label": "npm: compile",
 			"detail": "tsc --pretty --watch -p ."
+		},
+		{
+			"type": "npm",
+			"script": "test",
+			"group": "test",
+			"problemMatcher": [],
+			"label": "npm: test",
+			"detail": "mocha --recursive out/test"
 		}
 	]
 }
