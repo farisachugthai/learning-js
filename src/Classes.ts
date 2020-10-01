@@ -1,6 +1,6 @@
 #!/usr/bin/env tsc
 
-class Point {
+export class Point {
   // Properties
   x: number;
 
@@ -41,4 +41,3 @@ let pairToTuple = function <T>(p: Pair<T>) {
 };
 
 let tuple = pairToTuple({ item1: "hello", item2: "world" });
-

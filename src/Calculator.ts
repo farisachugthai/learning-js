@@ -1,3 +1,7 @@
+/**
+ * Adding some documentation to the Calculator class.
+ * Check the ../test/Calculator.test.ts file for a short note on imports
+ */
 export class Calculator {
   private current = 0;
   private memory = 0;

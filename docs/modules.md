@@ -22,11 +22,11 @@ Conversely, a file without any top-level `import` or `export` declarations is tr
 
 ## Export
 
-## Exporting a declaration
+### Exporting a declaration
 
 Any declaration (such as a variable, function, class, type alias, or interface) can be exported by adding the `export` keyword.
 
-##### StringValidator.ts
+#### StringValidator.ts
 
 ```ts
 export interface StringValidator {
@@ -62,12 +62,12 @@ export { ZipCodeValidator };
 export { ZipCodeValidator as mainValidator };
 ```
 
-## Re-exports
+### Re-exports
 
 Often modules extend other modules, and partially expose some of their features.
 A re-export does not import it locally, or introduce a local variable.
 
-##### ParseIntBasedZipCodeValidator.ts
+#### ParseIntBasedZipCodeValidator.ts
 
 ```ts
 export class ParseIntBasedZipCodeValidator {
@@ -155,14 +155,14 @@ Default exports are marked with the keyword `default`; and there can only be one
 `default` exports are really handy.
 For instance, a library like jQuery might have a default export of `jQuery` or `$`, which we'd probably also import under the name `$` or `jQuery`.
 
-##### [JQuery.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/jquery/JQuery.d.ts)
+### [JQuery.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/jquery/JQuery.d.ts)
 
 ```ts
 declare let $: JQuery;
 export default $;
 ```
 
-##### App.ts
+### App.ts
 
 ```ts
 import $ from "jquery";
@@ -173,7 +173,7 @@ $("button.continue").html("Next Step...");
 Classes and function declarations can be authored directly as default exports.
 Default export class and function declaration names are optional.
 
-##### ZipCodeValidator.ts
+#### ZipCodeValidator.ts
 
 ```ts
 export default class ZipCodeValidator {
@@ -184,7 +184,7 @@ export default class ZipCodeValidator {
 }
 ```
 
-##### Test.ts
+## Test.ts
 
 ```ts
 import validator from "./ZipCodeValidator";
@@ -194,7 +194,7 @@ let myValidator = new validator();
 
 or
 
-##### StaticZipCodeValidator.ts
+### StaticZipCodeValidator.ts
 
 ```ts
 const numberRegexp = /^[0-9]+$/;
@@ -204,7 +204,7 @@ export default function (s: string) {
 }
 ```
 
-##### Test.ts
+### Test.ts
 
 ```ts
 import validate from "./StaticZipCodeValidator";
@@ -219,13 +219,13 @@ strings.forEach((s) => {
 
 `default` exports can also be just values:
 
-##### OneTwoThree.ts
+## OneTwoThree.ts
 
 ```ts
 export default "123";
 ```
 
-##### Log.ts
+## Log.ts
 
 ```ts
 import num from "./OneTwoThree";
@@ -260,7 +260,7 @@ This can be a class, interface, namespace, function, or enum.
 
 When exporting a module using `export =`, TypeScript-specific `import module = require("module")` must be used to import the module.
 
-##### ZipCodeValidator.ts
+### ZipCodeValidator.ts
 
 ```ts
 let numberRegexp = /^[0-9]+$/;
@@ -272,7 +272,7 @@ class ZipCodeValidator {
 export = ZipCodeValidator;
 ```
 
-##### Test.ts
+#### Test.ts
 
 ```ts
 import zip = require("./ZipCodeValidator");
@@ -293,19 +293,27 @@ strings.forEach((s) => {
 
 ## Code Generation for Modules
 
-Depending on the module target specified during compilation, the compiler will generate appropriate code for Node.js ([CommonJS](http://wiki.commonjs.org/wiki/CommonJS)), require.js ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)), [UMD](https://github.com/umdjs/umd), [SystemJS](https://github.com/systemjs/systemjs), or [ECMAScript 2015 native modules](http://www.ecma-international.org/ecma-262/6.0/#sec-modules) (ES6) module-loading systems.
-For more information on what the `define`, `require` and `register` calls in the generated code do, consult the documentation for each module loader.
+Depending on the module target specified during compilation, the compiler
+will generate appropriate code for Node.js
+([CommonJS](http://wiki.commonjs.org/wiki/CommonJS)), require.js
+([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)),
+[UMD](https://github.com/umdjs/umd),
+[SystemJS](https://github.com/systemjs/systemjs), or [ECMAScript 2015 native
+modules](http://www.ecma-international.org/ecma-262/6.0/#sec-modules) (ES6)
+module-loading systems.
+For more information on what the `define`, `require` and `register` calls in
+the generated code do, consult the documentation for each module loader.
 
 This simple example shows how the names used during importing and exporting get translated into the module loading code.
 
-##### SimpleModule.ts
+### SimpleModule.ts
 
 ```ts
 import m = require("mod");
 export let t = m.something + 1;
 ```
 
-##### AMD / RequireJS SimpleModule.js
+#### AMD / RequireJS SimpleModule.js
 
 ```js
 define(["require", "exports", "./mod"], function (require, exports, mod_1) {
@@ -376,7 +384,7 @@ tsc --module commonjs Test.ts
 When compiled, each module will become a separate `.js` file.
 As with reference tags, the compiler will follow `import` statements to compile dependent files.
 
-##### Validation.ts
+### Validation.ts
 
 ```ts
 export interface StringValidator {
@@ -384,7 +392,7 @@ export interface StringValidator {
 }
 ```
 
-##### LettersOnlyValidator.ts
+#### LettersOnlyValidator.ts
 
 ```ts
 import { StringValidator } from "./Validation";
@@ -456,7 +464,7 @@ For this pattern to work, it's important that the symbol defined via an `import`
 To maintain type safety, we can use the `typeof` keyword.
 The `typeof` keyword, when used in a type position, produces the type of a value, in this case the type of the module.
 
-##### Dynamic Module Loading in Node.js
+### Dynamic Module Loading in Node.js
 
 ```ts
 declare function require(moduleName: string): any;
@@ -472,7 +480,7 @@ if (needZipValidation) {
 }
 ```
 
-##### Sample: Dynamic Module Loading in require.js
+#### Sample: Dynamic Module Loading in require.js
 
 ```ts
 declare function require(
@@ -525,7 +533,7 @@ We could define each module in its own `.d.ts` file with top-level export declar
 To do so, we use a construct similar to ambient namespaces, but we use the `module` keyword and the quoted name of the module which will be available to a later import.
 For example:
 
-##### node.d.ts (simplified excerpt)
+### node.d.ts (simplified excerpt)
 
 ```ts
 declare module "url" {
@@ -561,7 +569,7 @@ let myUrl = URL.parse("http://www.typescriptlang.org");
 
 If you don't want to take the time to write out declarations before using a new module, you can use a shorthand declaration to get started quickly.
 
-##### declarations.d.ts
+#### declarations.d.ts
 
 ```ts
 declare module "hot-new-module";
@@ -608,7 +616,7 @@ These are known as [UMD](https://github.com/umdjs/umd) modules.
 These libraries can be accessed through either an import or a global variable.
 For example:
 
-##### math-lib.d.ts
+#### math-lib.d.ts
 
 ```ts
 export function isPrime(x: number): boolean;
@@ -731,7 +739,7 @@ The recommended solution is to _not_ mutate the original object, but rather expo
 Consider a simple calculator implementation defined in module `Calculator.ts`.
 The module also exports a helper function to test the calculator functionality by passing a list of input strings and writing the result at the end.
 
-#### Calculator.ts
+### Calculator.ts
 
 ```ts
 export class Calculator {
