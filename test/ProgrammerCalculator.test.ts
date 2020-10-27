@@ -1,4 +1,4 @@
-import { Calculator, test } from "../src/ProgrammerCalculator";
+import { ProgrammerCalculator, test } from "../src/ProgrammerCalculator.js";
 
-let c = new Calculator(2);
+let c = new ProgrammerCalculator(2);
 test(c, "001+010="); // prints 3

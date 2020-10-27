@@ -7,6 +7,8 @@
 // import { Calculator } from ./src/Calculator
 // did
 import { Calculator, test } from "../src/Calculator.js";
+// let assert = require("assert");
+// import { Calculator, test } from "../src/Calculator";
 
 let c = new Calculator();
 test(c, "1+2*33/11="); // prints 9
@@ -17,3 +19,4 @@ test(c, "1+2*33/11="); // prints 9
 
 // however how do we call our instance?
 // assert.strictEqual(c, 9)
+// assert.assertTrue(test(c, "1+2*33/11="), 9)

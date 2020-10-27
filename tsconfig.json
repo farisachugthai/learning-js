@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "ES6",
+    // "module": "CommonJS",
+    "esModuleInterop": true,
     "moduleResolution": "node",
+    "pretty": true,
     "outDir": "out",
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true
   }
 }

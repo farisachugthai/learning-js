@@ -1,6 +1,6 @@
-import { Calculator } from "./Calculator";
+import { Calculator } from "./Calculator.js";
 
-class ProgrammerCalculator extends Calculator {
+export class ProgrammerCalculator extends Calculator {
   static digits = [
     "0",
     "1",
@@ -38,8 +38,9 @@ class ProgrammerCalculator extends Calculator {
 }
 
 // Export the new extended calculator as Calculator
-export { ProgrammerCalculator as Calculator };
+// export { ProgrammerCalculator as Calculator };
+// Nah lets make it separate but heres how you can export as
 
 // Also, export the helper function
-export { test } from "./Calculator";
+export { test } from "./Calculator.js";
 

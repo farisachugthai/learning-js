@@ -15,12 +15,13 @@
   },
   "scripts": {
     "compile": "tsc --pretty -p .",
-    "start": "ts-node",
     "pretest": "yarn compile",
+    "start": "ts-node src/NodeInit.js",
     "test": "mocha --recursive out/test",
     "watch": "tsc --pretty --watch -p ."
   },
   "readme": "README.md",
+  "type": "module",
   "dependencies": {
     "@types/node": "^14.6.0",
     "mocha": "^8.1.1",

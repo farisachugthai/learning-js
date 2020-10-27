@@ -1,6 +1,8 @@
-import { ZipCodeValidator } from "../../src/string_validation/ZipCodeValidator";
+import { ZipCodeValidator } from "../../src/string_validation/ZipCodeValidator.js";
 
-const assert = require('assert').strict;
+// Heres an interesting import that works
+// Actually doesnt work that module is es6
+// const assert = require('assert').strict;
 
 // Some samples to try
 let strings = ["Hello", "98052", "101"];
