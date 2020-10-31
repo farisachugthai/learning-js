@@ -16,7 +16,8 @@
   "scripts": {
     "compile": "tsc --pretty -p .",
     "pretest": "yarn compile",
-    "start": "ts-node src/NodeInit.js",
+    "repl": "ts-node src/NodeInit.js",
+    "start": "ts-node",
     "test": "mocha --recursive out/test",
     "watch": "tsc --pretty --watch -p ."
   },

@@ -1,7 +1,11 @@
-const os = require('os');
-const process = require('process');
-const repl = require('repl');
-const vm = require('vm');
+// const os = require('os');
+// const process = require('process');
+// const repl = require('repl');
+// const vm = require('vm');
+import * as os from 'os';
+import * as process from 'process';
+import * as repl from 'repl';
+import * as vm from 'vm';
 
 
 function myEval(cmd, context, filename, callback) {
