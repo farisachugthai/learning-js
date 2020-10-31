@@ -29,14 +29,15 @@ function isRecoverableError(error) {
 
 // os.userInfo() might return a username
 const replServer = repl.start({
-  prompt: `REPL@${os.hostname()}: ${process.cwd()} $: `,
+  prompt: `${os.userInfo()['username']}@${os.hostname()}: ${process.cwd()} $: `,
   input: process.stdin,
   output: process.stdout,
   // this actually fucks up the REPL horrifically
   // eval: myEval,
   ignoreUndefined: true,
   replMode: repl.REPL_MODE_STRICT,
-  preview: true
+  preview: true,
+  useColors: true
 });
 
 replServer.defineCommand('sayhello', {

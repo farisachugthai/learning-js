@@ -4,5 +4,22 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "pwa-node",
+				"request": "launch",
+				"name": "Launch Program",
+				"skipFiles": [
+					"<node_internals>/**"
+				],
+				"program": "${workspaceFolder}\\src\\NodeInit.js",
+				"outFiles": [
+					"${workspaceFolder}/**/*.js"
+				]
+			}
+		]
+	}
 }
