@@ -29,6 +29,7 @@ function isRecoverableError(error) {
 
 // os.userInfo() might return a username
 const replServer = repl.start({
+  // note that os.userInfo()['username'] === os.userInfo().username
   prompt: `${os.userInfo()['username']}@${os.hostname()}: ${process.cwd()} $: `,
   input: process.stdin,
   output: process.stdout,

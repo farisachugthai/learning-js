@@ -8,7 +8,7 @@ let process = require('process')
 let vm = require('vm')
 const os = require('os');
 
-let term = console.Console(process.stdout)
+let term = new console.Console(process.stdout)
 
 // Similar to import builtins
 const builtins = require('module').builtinModules;
